@@ -13,9 +13,12 @@ imports:
 
 inputs:
     # example input that could be injected by test
-    test_input:
+    str1:
         description: an input for the test
-        default: default_test_input
+        default: "We are the knights "
+    str2:
+        description: an input for the test
+        default: "who say ni"
 
 node_templates:
     # defining a single node template that will serve as our test node
@@ -27,7 +30,7 @@ node_templates:
                 start:
                     # here we map the single plugin task to the start operation
                     # of the cloudify.interfaces.lifecycle interface
-                    implementation: plugin_name.plugin.tasks.my_task
+                    implementation: cfy3_training_lab5_plugin.plugin.tasks.my_task
                     inputs:
                         # my_task accepts a single property named
                         # some property. Here we inject this property
@@ -39,4 +42,4 @@ outputs:
     # example output the could be used to simplify assertions by test
     test_output:
         description: an output for the test
-        value: { get_attribute: [test_node_template, value_of_some_property]}
+        value: { get_attribute: [cfy3_training_lab5_plugin, result]}

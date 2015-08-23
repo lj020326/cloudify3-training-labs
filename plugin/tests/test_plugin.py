@@ -19,7 +19,6 @@ import unittest
 
 from cloudify.workflows import local
 
-
 class TestPlugin(unittest.TestCase):
 
     def setUp(self):
@@ -29,7 +28,8 @@ class TestPlugin(unittest.TestCase):
 
         # inject input from test
         inputs = {
-            'test_input': 'new_test_input'
+            'str1': 'What makes you think she''s a witch? ',
+            'str2': 'Well, she turned me into a newt!'
         }
 
         # setup local workflow execution environment
@@ -46,8 +46,8 @@ class TestPlugin(unittest.TestCase):
         instance = self.env.storage.get_node_instances()[0]
 
         # assert runtime properties is properly set in node instance
-        self.assertEqual(instance.runtime_properties['value_of_some_property'],
-                         'new_test_input')
+        self.assertEqual(instance.runtime_properties['result'],
+                         'What makes you think she''s a witch? Well, she turned me into a newt!')
 
         # assert deployment outputs are ok
         self.assertDictEqual(self.env.outputs(),

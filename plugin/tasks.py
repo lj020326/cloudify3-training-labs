@@ -13,7 +13,6 @@
 #    * See the License for the specific language governing permissions and
 #    * limitations under the License.
 
-
 # ctx is imported and used in operations
 from cloudify import ctx
 
@@ -22,6 +21,11 @@ from cloudify.decorators import operation
 
 
 @operation
-def my_task(some_property, **kwargs):
+def my_task(str1, str2, **kwargs):
+    ctx.logger.info('str1 = '+str1)
+    ctx.logger.info('str2 = '+str2)
+    
+    result = str1 + str2
     # setting node instance runtime property
-    ctx.instance.runtime_properties['value_of_some_property'] = some_property
+    ctx.instance.runtime_properties['result'] = result
+    ctx.logger.info('result = '+result)
