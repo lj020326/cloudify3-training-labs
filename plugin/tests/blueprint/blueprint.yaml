@@ -30,16 +30,17 @@ node_templates:
                 start:
                     # here we map the single plugin task to the start operation
                     # of the cloudify.interfaces.lifecycle interface
-                    implementation: cfy3_training_lab5_plugin.plugin.tasks.my_task
+                    implementation: plugin_name.plugin.tasks.my_task
                     inputs:
                         # my_task accepts a single property named
                         # some property. Here we inject this property
                         # from the input provided by the test
                         # (or 'default_test_input' if no input was provided)
-                        some_property: { get_input: test_input }
+                        str1: { get_input: str1 }
+                        str2: { get_input: str2 }
 
 outputs:
     # example output the could be used to simplify assertions by test
     test_output:
         description: an output for the test
-        value: { get_attribute: [cfy3_training_lab5_plugin, result]}
+        value: { get_attribute: [test_node_template, result]}

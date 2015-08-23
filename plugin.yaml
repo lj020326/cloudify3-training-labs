@@ -1,7 +1,7 @@
 plugins:
   # Name could be anything, this name is what appears on the beginning of operation
   # mappings.
-  cfy3_training_lab5_plugin:
+  plugin_name:
     # Could be 'central_deployment_agent' or 'host_agent'.
     # If 'central_deployment_agent', this plugin will be executed on the
     # deployment dedicated agent, other wise it will be executed on the host agent.
@@ -10,4 +10,5 @@ plugins:
     # URL to archive containing the plugin or name of directory containing
     # the plugin if it is included in the the blueprint directory under the
     # "plugins" directory.
-    source: https://github.com/cloudify-cosmo/cloudify-plugin-template/archive/3.2.zip
+#    source: https://github.com/cloudify-cosmo/cloudify-plugin-template/archive/3.2.zip
+    source: https://github.com/lj020326/cloudify3-training-labs/archive/master.zip

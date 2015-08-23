@@ -51,4 +51,4 @@ class TestPlugin(unittest.TestCase):
 
         # assert deployment outputs are ok
         self.assertDictEqual(self.env.outputs(),
-                             {'test_output': 'new_test_input'})
+                             {'test_output': 'What makes you think she''s a witch? Well, she turned me into a newt!'})
