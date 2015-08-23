@@ -32,10 +32,6 @@ node_templates:
                     # of the cloudify.interfaces.lifecycle interface
                     implementation: plugin_name.plugin.tasks.my_task
                     inputs:
-                        # my_task accepts a single property named
-                        # some property. Here we inject this property
-                        # from the input provided by the test
-                        # (or 'default_test_input' if no input was provided)
                         str1: { get_input: str1 }
                         str2: { get_input: str2 }
 
